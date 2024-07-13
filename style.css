@@ -1,0 +1,449 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  user-select: none;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  font-family: sans-serif;
+}
+
+.container{
+  height: 100%;
+  width: 100%;
+  background: rgb(51, 97, 112) ;
+
+}
+
+button{
+  outline: none;
+
+  &:active{
+    transform: scale(0.9);
+  }
+}
+
+#win{
+  text-align: center;
+  font-size: 40px;
+  font-weight: 700;
+  padding-top: 30px;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+padding-bottom: 30px;
+}
+
+.result {
+  width: 100%;
+  height: 100%;
+  display: none;
+  /* display: grid; */
+  place-content: center;
+  background: rgb(51, 97, 112) ;
+}
+.game {
+  /* display: none; */
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-content: center;
+  background: rgb(51, 97, 112) ;
+}
+
+.heading{
+  font-size: 50px;
+  font-family: consolas;
+  text-align: center;
+  background: linear-gradient(13deg, rgb(206, 3, 3) , rgb(10, 10, 189)) ;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  padding-bottom: 20px;
+  animation: ani 2s infinite linear;
+}
+
+@keyframes ani {
+  0%{
+    background: linear-gradient(13deg, rgb(206, 3, 3) , rgb(10, 10, 189)) ;
+    -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  }25%{
+    background: linear-gradient(13deg , rgb(10, 10, 189),  rgb(206, 3, 3)) ;
+    -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+
+  }75%{
+    background: linear-gradient(13deg, rgb(206, 3, 3) , rgb(10, 10, 189)) ;
+    -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  }100%{
+    background: linear-gradient(13deg , rgb(10, 10, 189),  rgb(206, 3, 3)) ;
+    -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  }
+}
+
+.main_btn {
+    width: 100px;
+    height: 100px;
+    background-color: lightblue;
+    color: #000;
+    border-radius: 7px;
+    border: none;
+    margin: 5px;
+    font-size: 45px;
+    font-family: sans-serif;
+    cursor: pointer;
+    outline: none;
+}
+
+.btn {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr); 
+    place-content: center;
+    background: rgb(51, 97, 112) ;
+
+}
+
+
+#reset {
+  position: relative;
+  /* padding: 12px 35px; */
+  background: #fec195;
+  font-weight: 500;
+  color: #181818;
+  border: 3px solid #fec195;
+  border-radius: 8px;
+  box-shadow: 0 0 0 #fec1958c;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  margin-left: 85px;
+  margin-top: 30px;
+  font-size: 20px;
+  letter-spacing: 1px;
+
+  &:active {
+    transform: scale(0.9);
+  }
+}
+
+.star-1 {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-2 {
+  position: absolute;
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+  position: absolute;
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+  position: absolute;
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+  position: absolute;
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+  position: absolute;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 0 #fffdef);
+  z-index: -5;
+  transition: all 0.8s ease;
+}
+
+#reset:hover {
+  background: transparent;
+  color: #fec195;
+  box-shadow: 0 0 25px #fec1958c;
+}
+
+#reset:hover .star-1 {
+  position: absolute;
+  top: -80%;
+  left: -30%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+#reset:hover .star-2 {
+  position: absolute;
+  top: -25%;
+  left: 10%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+#reset:hover .star-3 {
+  position: absolute;
+  top: 55%;
+  left: 25%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+#reset:hover .star-4 {
+  position: absolute;
+  top: 30%;
+  left: 80%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+#reset:hover .star-5 {
+  position: absolute;
+  top: 25%;
+  left: 115%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+#reset:hover .star-6 {
+  position: absolute;
+  top: 5%;
+  left: 60%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #fffdef);
+  z-index: 2;
+}
+
+.fil0 {
+  fill: #fffdef;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  top: 20px;
+  left: 20px;
+}
+
+.buttons #newGame_btn {
+  width: 150px;
+  height: 50px;
+  background-color: #000;
+  margin: 20px;
+  color: #568fa6;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.buttons #newGame_btn:before, .buttons #newGame_btn:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #44d8a4;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons #newGame_btn:before {
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons #newGame_btn:after {
+  left: 0;
+  bottom: 0;
+}
+
+.buttons #newGame_btn span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.buttons #newGame_btn span:before, .buttons #newGame_btn span:after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background-color: #44d8a4;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons #newGame_btn span:before {
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons #newGame_btn span:after {
+  left: 0;
+  bottom: 0;
+}
+
+.buttons #newGame_btn p {
+  padding: 0;
+  margin: 0;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.buttons #newGame_btn p:before, .buttons #newGame_btn p:after {
+  position: absolute;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  z-index: 1;
+  left: 0;
+}
+
+.buttons #newGame_btn p:before {
+  content: attr(data-title);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons #newGame_btn p:after {
+  content: attr(data-text);
+  top: 150%;
+  color: #44d8a4;
+}
+
+.buttons #newGame_btn:hover:before, .buttons #newGame_btn:hover:after {
+  width: 100%;
+}
+
+.buttons #newGame_btn:hover span {
+  z-index: 1;
+}
+
+.buttons #newGame_btn:hover span:before, .buttons #newGame_btn:hover span:after {
+  height: 100%;
+}
+
+.buttons #newGame_btn:hover p:before {
+  top: -50%;
+  transform: rotate(5deg);
+}
+
+.buttons #newGame_btn:hover p:after {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons #newGame_btn.start {
+  background-color: #44d8a4;
+  box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.buttons #newGame_btn.start p:before {
+  top: -50%;
+  transform: rotate(5deg);
+}
+
+.buttons #newGame_btn.start p:after {
+  color: white;
+  transition: all 0s ease;
+  content: attr(data-start);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: start 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes start {
+  from {
+    top: -50%;
+  }
+}
+
+.buttons #newGame_btn.start:hover:before, .buttons #newGame_btn.start:hover:after {
+  display: none;
+}
+
+.buttons #newGame_btn.start:hover span {
+  display: none;
+}
+
+.buttons #newGame_btn:active {
+  outline: none;
+  border: none;
+}
+
+.buttons #newGame_btn:focus {
+  outline: 0;
+}
